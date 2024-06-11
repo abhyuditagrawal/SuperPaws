@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #222;
+        color: #eee;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #333;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    input[type="text"], input[type="number"], input[type="date"], input[type="email"], input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #555;
+        border-radius: 3px;
+        box-sizing: border-box;
+        background-color: #444;
+        color: #eee;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2 style="text-align: center;">Payment Details</h2>
+    <form id="paymentForm">
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="text" id="cardNumber" placeholder="Card Number" required>
+        <input type="text" id="expiryDate" placeholder="Expiry Date (MM/YYYY)" required>
+        <input type="number" id="cvv" placeholder="CVV" required>
+        <input type="submit" value="Submit Payment">
+    </form>
+</div>
+
+<script>
+    document.getElementById("paymentForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the entered values
+        var fullName = document.getElementById("fullName").value;
+        var email = document.getElementById("email").value;
+        var address = document.getElementById("address").value;
+        var cardNumber = document.getElementById("cardNumber").value;
+        var expiryDate = document.getElementById("expiryDate").value;
+        var cvv = document.getElementById("cvv").value;
+
+        // Validate the input (for simplicity, just check if fields are not empty)
+        if (fullName.trim() === '' || email.trim() === '' || address.trim() === '' || cardNumber.trim() === '' || expiryDate.trim() === '' || cvv.trim() === '') {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        // Perform further processing (e.g., send data to a server, process payment)
+        // For demonstration purposes, just display the entered data
+        var paymentDetails = "Payment submitted!\n";
+        paymentDetails += "Full Name: " + fullName + "\n";
+        paymentDetails += "Email: " + email + "\n";
+        paymentDetails += "Address: " + address + "\n";
+        paymentDetails += "Card Number: " + cardNumber + "\n";
+        paymentDetails += "Expiry Date: " + expiryDate + "\n";
+        paymentDetails += "CVV: " + cvv;
+        alert(paymentDetails);
+
+        // Clear the form after submission
+        document.getElementById("paymentForm").reset();
+    });
+</script>
+</body>
+</html>
