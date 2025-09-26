@@ -1,0 +1,10 @@
+// Perform further processing (e.g., send data to a server, process payment)
+        // For demonstration purposes, just display the entered data
+        var paymentDetails = "Payment submitted!\n";
+        paymentDetails += "Full Name: " + fullName + "\n";
+        paymentDetails += "Email: " + email + "\n";
+        paymentDetails += "Address: " + address + "\n";
+        paymentDetails += "Card Number: " + cardNumber + "\n";
+        paymentDetails += "Expiry Date: " + expiryDate + "\n";
+        paymentDetails += "CVV: " + cvv;
+        alert(paymentDetails);
